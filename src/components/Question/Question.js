@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
-import Option from "../Option/Option";
 
 const Question = ({ quiz }) => {
   console.log(quiz);
@@ -18,9 +17,12 @@ const Question = ({ quiz }) => {
             {open ? <EyeIcon></EyeIcon> : <EyeSlashIcon></EyeSlashIcon>}
           </div>
         </div>
-        <div className="grid grid-cols-2">
+        <div className="flex flex-col items-start ml-3 px-3 py-2">
           {options.map((option, idx) => (
-            <Option></Option>
+            <label key={idx}>
+              <input className="ps-3" type="checkbox" />
+              {option}
+            </label>
           ))}
 
           {open === true && (

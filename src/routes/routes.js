@@ -19,6 +19,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/statistics",
+        loader: async () => {
+          return fetch("https://openapi.programming-hero.com/api/quiz");
+        },
         element: <Statistics></Statistics>,
       },
       {
@@ -32,6 +35,14 @@ export const router = createBrowserRouter([
             ` https://openapi.programming-hero.com/api/quiz/${params.quizId}`
           ),
         element: <Questions></Questions>,
+      },
+      {
+        path: "*",
+        element: (
+          <div className="text-yellow-600 text-5xl font-bold">
+            This is Not Our Page !!
+          </div>
+        ),
       },
     ],
   },
