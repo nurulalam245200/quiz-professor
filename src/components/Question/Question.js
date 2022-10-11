@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
+import { toast } from "react-toastify";
 
 const Question = ({ quiz }) => {
-  console.log(quiz);
   const { correctAnswer, options, question } = quiz;
   const [open, setOpen] = useState(false);
-
+  const handleAnswer = (e) => {
+    const value = e.target.innerText;
+    if (value === correctAnswer) {
+      toast.success("Correct", { autoClose: 2000 });
+    } else {
+      toast.error("Incorrect", { autoClose: 2000 });
+    }
+  };
   return (
     <div className="bg-sky-300 p-8 rounded-lg">
       <div>
         <div className="flex justify-between">
           <p className="text-lg font-semibold">
-            Quiz -{} : {question.split("<p>")}
+            Quiz -{} : {question.slice(3, -4)}
           </p>
           <div className="h-6 w-6" onClick={() => setOpen(!open)}>
             {open ? <EyeIcon></EyeIcon> : <EyeSlashIcon></EyeSlashIcon>}
@@ -19,10 +26,13 @@ const Question = ({ quiz }) => {
         </div>
         <div className="flex flex-col items-start ml-3 px-3 py-2">
           {options.map((option, idx) => (
-            <label key={idx}>
-              <input className="ps-3" type="checkbox" />
+            <li
+              onClick={(e) => {
+                handleAnswer(e);
+              }}
+            >
               {option}
-            </label>
+            </li>
           ))}
 
           {open === true && (

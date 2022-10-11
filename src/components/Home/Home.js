@@ -1,16 +1,13 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
-import QuestionType from "../QuestionType/QuestionType";
+import logo from "../../images/banner.png";
 
 const Home = () => {
-  const catagory = useLoaderData();
-  const types = catagory.data;
-
   return (
-    <div className="bg-sky-300 p-5 py-20 grid grid-cols-4 gap-3">
-      {types.map((type) => (
-        <QuestionType key={type.id} type={type}></QuestionType>
-      ))}
+    <div>
+      <h1 className="text-white text-4xl font-bold bg-red-500">
+        Our Quiz Professor Team Here!
+      </h1>
+      <img className="w-full" src={logo} alt="" />
     </div>
   );
 };
