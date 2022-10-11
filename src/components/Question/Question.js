@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { BeakerIcon, EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
+import Option from "../Option/Option";
 
 const Question = ({ quiz }) => {
   console.log(quiz);
-  const { id, correctAnswer, options, question } = quiz;
+  const { correctAnswer, options, question } = quiz;
   const [open, setOpen] = useState(false);
 
   return (
@@ -11,7 +12,7 @@ const Question = ({ quiz }) => {
       <div>
         <div className="flex justify-between">
           <p className="text-lg font-semibold">
-            Quiz : {question.split("<p>")}
+            Quiz -{} : {question.split("<p>")}
           </p>
           <div className="h-6 w-6" onClick={() => setOpen(!open)}>
             {open ? <EyeIcon></EyeIcon> : <EyeSlashIcon></EyeSlashIcon>}
@@ -19,10 +20,7 @@ const Question = ({ quiz }) => {
         </div>
         <div className="grid grid-cols-2">
           {options.map((option, idx) => (
-            <label key={idx}>
-              <input type="checkbox" />
-              {option}
-            </label>
+            <Option></Option>
           ))}
 
           {open === true && (
