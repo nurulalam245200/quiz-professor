@@ -7,7 +7,7 @@ const Questions = () => {
   const questions = loadQuestion;
 
   return (
-    <div>
+    <div className="grid grid-cols-1 gap-6  w-[800px] h-[450px] mx-auto p-6 ">
       {questions.map((quiz) => (
         <Question key={quiz.id} quiz={quiz}></Question>
       ))}
