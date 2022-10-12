@@ -11,9 +11,9 @@ const Question = ({ quiz }) => {
     const value = e.target.value;
     setSelected(e.target.value);
     if (value === correctAnswer) {
-      toast.success("Correct", { autoClose: 2000 });
+      toast.success("Yes!! Correct", { autoClose: 2000 });
     } else {
-      toast.error("Incorrect", { autoClose: 2000 });
+      toast.error("Opps! Incorrect", { autoClose: 2000 });
     }
   };
   return (
