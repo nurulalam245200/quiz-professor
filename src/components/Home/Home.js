@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../images/banner.png";
+import Topic from "../Topics/Topic";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         And we also want to share our workl with you.
       </p>
       <img className="w-full" src={logo} alt="" />
+      <Topic></Topic>
     </div>
   );
 };

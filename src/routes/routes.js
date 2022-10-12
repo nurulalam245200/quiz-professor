@@ -9,6 +9,9 @@ import Main from "../layouts/Main";
 export const router = createBrowserRouter([
   {
     path: "/",
+    loader: async () => {
+      return fetch("https://openapi.programming-hero.com/api/quiz");
+    },
     element: <Main></Main>,
     children: [
       {
@@ -19,6 +22,7 @@ export const router = createBrowserRouter([
         path: "/home",
         element: <Home></Home>,
       },
+
       {
         path: "/topics",
         loader: async () => {
@@ -26,6 +30,7 @@ export const router = createBrowserRouter([
         },
         element: <Topic></Topic>,
       },
+
       {
         path: "/statistics",
         loader: async () => {
