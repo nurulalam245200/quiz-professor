@@ -29,7 +29,7 @@ const Question = ({ quiz }) => {
         </div>
         <div className="flex flex-col items-start ml-3 px-3 py-2">
           {options.map((option, idx) => (
-            <label htmlFor="">
+            <label>
               <input
                 value={option}
                 checked={option === selected ? true : false}
