@@ -33,3 +33,4 @@ then it pass data in Questions by dynamic link from button
 5.create Question component and display all quiz by unique topic
 6.create statistics components and show topic name and total question graph in line charts
 7.create a blog component write some question and using collapse
+8.complete all site with resposive behave.
