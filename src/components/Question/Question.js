@@ -5,9 +5,11 @@ import { toast } from "react-toastify";
 const Question = ({ quiz }) => {
   const { correctAnswer, options, question } = quiz;
   const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState("");
 
   const handleAnswer = (e) => {
-    const value = e.target.innerText;
+    const value = e.target.value;
+    setSelected(e.target.value);
     if (value === correctAnswer) {
       toast.success("Correct", { autoClose: 2000 });
     } else {
@@ -27,14 +29,18 @@ const Question = ({ quiz }) => {
         </div>
         <div className="flex flex-col items-start ml-3 px-3 py-2">
           {options.map((option, idx) => (
-            <li
-              key={idx}
-              onClick={(e) => {
-                handleAnswer(e);
-              }}
-            >
+            <label htmlFor="">
+              <input
+                value={option}
+                checked={option === selected ? true : false}
+                type="checkbox"
+                key={idx}
+                onClick={(e) => {
+                  handleAnswer(e);
+                }}
+              />
               {option}
-            </li>
+            </label>
           ))}
 
           {open === true && (
