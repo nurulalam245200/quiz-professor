@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 const Question = ({ quiz }) => {
   const { correctAnswer, options, question } = quiz;
   const [open, setOpen] = useState(false);
+
   const handleAnswer = (e) => {
     const value = e.target.innerText;
     if (value === correctAnswer) {
@@ -27,6 +28,7 @@ const Question = ({ quiz }) => {
         <div className="flex flex-col items-start ml-3 px-3 py-2">
           {options.map((option, idx) => (
             <li
+              key={idx}
               onClick={(e) => {
                 handleAnswer(e);
               }}

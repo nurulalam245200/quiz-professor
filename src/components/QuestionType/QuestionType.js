@@ -8,14 +8,17 @@ const QuestionType = ({ type }) => {
     navigate(`/quiz/${id}`);
   };
   return (
-    <div className="card bg-slate-400 shadow-xl">
+    <div className="card bg-yellow-300 shadow-2xl">
       <img src={logo} alt="Shoes" />
 
-      <div className="card-body text-white">
+      <div className="card-body bg-slate-900 text-white">
         <h2 className="text-lg font-semibold">{name}</h2>
-        <p>Total Question :{total}</p>
+        <p>Total Question : {total}</p>
         <div className="card-actions justify-end ">
-          <button onClick={handleQuizEvent} className="btn btn-primary">
+          <button
+            onClick={handleQuizEvent}
+            className="btn btn-info text-lg font-medium text-white"
+          >
             Start Quiz
           </button>
         </div>
